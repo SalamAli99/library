@@ -8,6 +8,10 @@
 <body>
   
   <div class="container mt-5">
+    <form action="{{ route('authors.search') }}" method="GET">
+      <input type="text" name="search" placeholder="Search authors">
+      <button type="submit">Search</button>
+  </form>
     <a class="btn btn-sm btn-success" href={{ route('authors.create') }}>Add New author</a>
 
     <div class="row">

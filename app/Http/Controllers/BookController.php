@@ -88,4 +88,12 @@ class BookController extends Controller
         return redirect()->route('books.index')
           ->with('success', 'Book deleted successfully');
     }
+
+    public function search(Request $request)
+{
+    $search = $request->input('search');
+    $results = Book::where('title', 'like', "%$search%")->get();
+
+    return view('books.index', ['results' => $results]);
+}
 }

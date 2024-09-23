@@ -18,3 +18,5 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+Route::get('/search', [BookController::class, 'search'])->name('books.search');
+Route::get('/search', [AuthorController::class, 'search'])->name('authors.search');

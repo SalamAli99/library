@@ -85,4 +85,12 @@ class AuthorController extends Controller
         return redirect()->route('authors.index')
           ->with('success', 'Author deleted successfully');
     }
+
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $results = Author::where('name', 'like', "%$search%")->get();
+    
+        return view('authors.index', ['results' => $results]);
+    }
 }

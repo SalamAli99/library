@@ -8,6 +8,10 @@
 <body>
   
   <div class="container mt-5">
+    <form action="{{ route('books.search') }}" method="GET">
+      <input type="text" name="search" placeholder="Search books">
+      <button type="submit">Search</button>
+  </form>
     <a class="btn btn-sm btn-success" href={{ route('books.create') }}>Add New Book</a>
 
     <div class="row">
@@ -19,6 +23,7 @@
             </div>
             <div class="card-body">
               <p class="card-text">{{ $book->type }}</p>
+              <p class="card-text">{{$book->author}}</p>
             </div>
             <div class="card-footer">
               <div class="row">
